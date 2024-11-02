@@ -36,13 +36,6 @@ gulp.task('scss', function () {
         .pipe(gulp.dest('dist/css')) // Збереження у dist
         .pipe(browserSync.stream()); // Оновлення браузера
 });
-gulp.task('bootstrap', function () {
-    return gulp.src([
-        'node_modules/bootstrap/dist/css/bootstrap.min.css',
-        'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'
-    ], { base: 'node_modules/bootstrap/dist' }) // базовий шлях для коректного збереження в dist
-        .pipe(gulp.dest('dist')); // Копіювання у dist
-});
 
 // Об'єднання і мінімізація скриптів
 gulp.task('scripts', function () {
@@ -79,4 +72,4 @@ gulp.task('watch', function () {
 });
 
 // Default task
-gulp.task('default', gulp.series('html','bootstrap', 'scss', 'scripts', 'images', 'watch'));
+gulp.task('default', gulp.series('html', 'scss', 'scripts', 'images', 'watch'));
